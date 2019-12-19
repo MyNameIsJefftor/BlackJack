@@ -8,7 +8,8 @@ namespace Library
 {
     public class Deck
     {
-        string[] suits = new string[] { "heart", "club", "spade", "diamond" };
+        string[] suits = new string[] { "club", "spade", "diamond", "heart" };
+        int[] suitExit = new int[] { 2660, 2663, 2666, 2665 };
         string[] faces = new string[] { "king", "queen", "Jack", "ten", "nine", "eight", "seven", "six", "five", "four", "three", "two", "Ace" };
         int[] Points = new int[] { 10, 10, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 11 };
 
@@ -16,23 +17,25 @@ namespace Library
         public Deck()
         {
             deck = new List<Card>();
+            GenerateDeck();
         }
         public void GenerateDeck()
         {
-            new Deck();
+            int x = 0;
             foreach (var suit in suits)
             {
                 int i = 0;
                 foreach (var face in faces)
                 {
-                    Card temp = new Card(face, Points[i++], suit);
+                    Card temp = new Card(face, Points[i++], suit, suitExit[x]);
                     deck.Add(temp);
                 }
+                x++;
             }
         }
         public void DisplayDeck()
         {
-            foreach(var card in this.deck)
+            foreach (var card in this.deck)
             {
                 Console.WriteLine(card.display());
             }

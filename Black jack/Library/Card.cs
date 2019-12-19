@@ -11,12 +11,14 @@ namespace Library
         public string Face { get; set; }
         public int PointValue { get; set; }
         public string Suit { get; set; }
+        public int SuitSymb { get; set; }
 
-        public Card(string Fac, int Val, string Sui)
+        public Card(string Fac, int Val, string Sui, int exitCode)
         {
             Face = Fac;
             PointValue = Val;
             Suit = Sui;
+            SuitSymb = exitCode;
         }
         public string display()
         {

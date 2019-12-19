@@ -14,8 +14,8 @@ namespace Library
         int consoleW { get; set; }
         int consoleH { get; set; }
         string Space = " ";
-        ConsoleColor SpadeClub = ConsoleColor.Blue;
-        ConsoleColor HeartDiamond = ConsoleColor.Red;
+        ConsoleColor SpadeClub = ConsoleColor.DarkCyan;
+        ConsoleColor HeartDiamond = ConsoleColor.Magenta;
         public UI()
         {
             consoleW = Console.WindowWidth;
@@ -28,35 +28,157 @@ namespace Library
             Console.SetCursorPosition(centerx - Write.Length, centery);
             Console.Write(Write);
         }
-        public void CardView(Hand hand)
+        #region DeckViewer
+        public void CardView(Deck deck)
         {
+            int i = 0;
+            Console.Clear();
+            foreach (var card in deck.deck)
+            {
+                if (card.Suit == "heart" || card.Suit == "diamond")
+                {
+                    GenerateCard(HeartDiamond, card, i);
+                }
+                else
+                {
+                    GenerateCard(SpadeClub, card, i);
+                }
+            }
+            Console.ResetColor();
+        }
+        private void GenerateCard(ConsoleColor suit, Card card, int count)
+        {
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = suit;
+            Console.Write(card.display());
+            Console.BackgroundColor = ConsoleColor.Black;
+            Console.WriteLine('\n');
+
+        }
+        #endregion
+        #region Player Cards
+        public void PlayerCardView(Hand hand)
+        {
+            Console.ForegroundColor = ConsoleColor.Black;
+            int i = 0;
             foreach (var card in hand.handCards)
             {
                 if (card.Suit == "heart" || card.Suit == "diamond")
                 {
-                    GenerateCard(HeartDiamond, card);
+                    GeneratePlayerCard(HeartDiamond, card, i);
                 }
                 else
                 {
-                    GenerateCard(SpadeClub, card);
+                    GeneratePlayerCard(SpadeClub, card, i);
                 }
+                i++;
             }
 
         }
-
-        private void GenerateCard(ConsoleColor suit, Card card)
+        //displays card on the players side of the table
+        private void GeneratePlayerCard(ConsoleColor suit, Card card, int count)
         {
-            Console.SetCursorPosition((int)(consoleW * .15), consoleH-10);
-            for (int hi = consoleH - 10; hi <= consoleH; hi++)
+            Console.ForegroundColor = suit;
+            int cardWidth = (int)(consoleW * .1);
+            int cardHeight = consoleH - 5;
+            for (int hi = cardHeight; hi <= consoleH + 1; hi++)
             {
-                for (int i = 0; i < (consoleW * .15); i++)
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(cardWidth + (count * (cardWidth+1)), hi);
+                for (int i = 0; i < cardWidth; i++)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
-                    Console.Write(Space);
-                    Console.BackgroundColor = ConsoleColor.Black;
+                    if(hi == cardHeight && i == 0)
+                    {
+                        switch (card.SuitSymb)
+                        {
+                            case 2660:
+                                Console.Write("\u2660");
+                                break;
+                            case 2663:
+                                Console.Write("\u2663");
+                                break;
+                            case 2666:
+                                Console.Write("\u2666");
+                                break;
+                            case 2665:
+                                Console.Write("\u2665");
+                                break;
+                        }
+                        i++;
+                    }
+                    if (hi == cardHeight && i == 1)
+                    {
+                        Console.Write(card.Face);
+                        i += card.Face.Length - 1;
+                    }
+                    else
+                        Console.Write(Space);
                 }
-                Console.SetCursorPosition((int)(consoleW * .15), hi);
             }
+            Console.ResetColor();
+        }
+        #endregion
+        #region Dealer Cards
+        public void DealerCardView(Hand hand)
+        {
+            int i = 0;
+            foreach (var card in hand.handCards)
+            {
+                if (card.Suit == "heart" || card.Suit == "diamond")
+                {
+                    GenerateDealerCard(HeartDiamond, card, i);
+                }
+                else
+                {
+                    GenerateDealerCard(SpadeClub, card, i);
+                }
+                i++;
+            }
+
+        }
+        private void GenerateDealerCard(ConsoleColor suit, Card card, int count)
+        {
+            Console.ForegroundColor = suit;
+            int cardWidth = (int)(consoleW * .1);
+            int cardHeight = consoleH - 5;
+            for (int hi = cardHeight; hi <= consoleH + 1; hi++)
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(cardWidth + (count * (cardWidth + 1)), hi);
+                for (int i = 0; i < cardWidth; i++)
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    if (hi == cardHeight && i == 0)
+                    {
+                        switch (card.SuitSymb)
+                        {
+                            case 2660:
+                                Console.Write("\u2660");
+                                break;
+                            case 2663:
+                                Console.Write("\u2663");
+                                break;
+                            case 2666:
+                                Console.Write("\u2666");
+                                break;
+                            case 2665:
+                                Console.Write("\u2665");
+                                break;
+                        }
+                        i++;
+                    }
+                    if (hi == cardHeight && i == 1)
+                    {
+                        Console.Write(card.Face);
+                        i += card.Face.Length - 1;
+                    }
+                    else
+                        Console.Write(Space);
+                }
+            }
+            Console.ResetColor();
         }
     }
+    #endregion
 }
