@@ -13,7 +13,7 @@ namespace Library
         private static string[] HitStayOptions = new string[] { "Hit", "Stay" };
         private static string[] Replay = new string[] { "Yes", "No" };
         private static bool restart = false;
-        private static bool again = false;
+        private static bool again = true;
         public static void launchmenu(Game game, out bool exit)
         {
             Readers.ReadChoice("Choice? : ", LaunchOptions, out int selection);
@@ -53,34 +53,36 @@ namespace Library
 
         internal static void Lose(UI userFace, Hand player, Hand dealer)
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Red;
             userFace.WriteCenter($"You Lost!");
             userFace.WriteCenter($"You got {player.score}", 1);
             userFace.WriteCenter($"The dealer got {dealer.score}", 2);
+            Console.ReadKey();
             PlayAgain();
         }
 
         internal static void Win(UI ui, Hand Player, Hand Dealer)
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.Yellow;
             ui.WriteCenter($"You won!");
             ui.WriteCenter($"You got {Player.score}", 1);
             ui.WriteCenter($"The dealer got {Dealer.score}", 2);
+            Console.ReadKey();
             PlayAgain();
         }
         internal static void Draw(UI userFace, Hand player, Hand dealer)
         {
-            Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
             userFace.WriteCenter($"You Tied.");
             userFace.WriteCenter($"You got {player.score}", 1);
             userFace.WriteCenter($"The dealer got {dealer.score}", 2);
+            Console.ReadKey();
+            PlayAgain();
         }
 
         private static void PlayAgain()
         {
+            Console.Clear();
             Console.ResetColor();
             Console.SetCursorPosition(0, 0);
             Readers.ReadChoice("Play again? : ", Replay, out int selection);

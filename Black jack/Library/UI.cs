@@ -195,6 +195,11 @@ namespace Library
             Console.SetCursorPosition((int)(consoleW * .1), (consoleH - 8));
             Console.Write(hand.score);
         }
+        public void ScoreDealDisplay(Hand hand)
+        {
+            Console.SetCursorPosition((int)(consoleW * .1), (7));
+            Console.Write(hand.score);
+        }
         #endregion
     }
 }

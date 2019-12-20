@@ -51,11 +51,15 @@ namespace Library
             Console.ReadKey();
             if (Player.score > 21)
             {
+                userFace.DealerCardView(Dealer, false);
+                userFace.ScoreDealDisplay(Dealer);
+                Console.ReadKey();
                 Menus.Lose(userFace, Player, Dealer);
                 return;
             }
             AI Go = new AI(Dealer, deck);
             userFace.DealerCardView(Dealer, false);
+            userFace.ScoreDealDisplay(Dealer);
             Console.ReadKey();
             if (Dealer.score > 21)
             {
@@ -69,10 +73,11 @@ namespace Library
         {
             if (player.score > dealer.score)
                 Menus.Win(userFace, player, dealer);
-            if (player.score == dealer.score)
+            else if (player.score == dealer.score)
                 Menus.Draw(userFace, player, dealer);
             else
                 Menus.Lose(userFace, player, dealer);
+            return;
         }
 
         internal void Restart()
@@ -85,6 +90,7 @@ namespace Library
 
         public void ShowDeck()
         {
+            deck.ShuffleDeck();
             userFace.CardView(deck);
             Console.ReadKey();
         }
