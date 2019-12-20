@@ -13,3 +13,18 @@ C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.dll
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.pdb
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Black jack\bin\Debug\netcoreapp3.0\ReadersV0.5.cs
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.exe
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\ReadersV0.5.cs
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.deps.json
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.runtimeconfig.json
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.runtimeconfig.dev.json
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.dll
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Black jack.pdb
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Library.dll
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\bin\Debug\netcoreapp3.0\Library.pdb
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.AssemblyInfo.cs
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.csproj.CopyComplete
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.dll
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Black jack\obj\Debug\netcoreapp3.0\Black jack.pdb

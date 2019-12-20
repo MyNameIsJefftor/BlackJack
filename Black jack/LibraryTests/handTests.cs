@@ -14,6 +14,15 @@ namespace Library.Tests
         [TestMethod()]
         public void AddCardTest()
         {
+            Hand test = new Hand();
+            test.AddCard(new Card("Ace", 11, "hearts", 1));
+            Assert.AreEqual(11, test.score);
+            test.AddCard(new Card("Ace", 11, "spade", 1));
+            Assert.AreEqual(12, test.score);
+            test.AddCard(new Card("10", 10, "hearts", 1));
+            Assert.AreEqual(12, test.score);
+            test.AddCard(new Card("Ace", 11, "diamond", 1));
+            Assert.AreEqual(13, test.score);
         }
     }
 }

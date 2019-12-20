@@ -10,7 +10,7 @@ namespace Library
     {
         string[] suits = new string[] { "club", "spade", "diamond", "heart" };
         int[] suitExit = new int[] { 2660, 2663, 2666, 2665 };
-        string[] faces = new string[] { "king", "queen", "Jack", "ten", "nine", "eight", "seven", "six", "five", "four", "three", "two", "Ace" };
+        string[] faces = new string[] { "King", "Queen", "Jack", "10", "9", "8", "7", "6", "5", "4", "3", "2", "Ace" };
         int[] Points = new int[] { 10, 10, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 11 };
 
         public List<Card> deck { get; set; }
@@ -44,7 +44,7 @@ namespace Library
         {
             List<Card> temp = new List<Card>();
             Random randy = new Random();
-            Console.WriteLine("Shuffle Start");
+            //Console.WriteLine("Shuffle Start");
             while (temp.Count != deck.Count())
             {
                 Card hold = deck[randy.Next(0, deck.Count)];
@@ -54,7 +54,7 @@ namespace Library
                 }
             }
             deck = temp;
-            Console.WriteLine("Shuffle done");
+            //Console.WriteLine("Shuffle done");
         }
         public Card dealCard()
         {

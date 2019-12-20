@@ -28,10 +28,6 @@ namespace Library
             }
             handCards.Add(newCard);
             ScoreCheck();
-            if(score > 21)
-            {
-                //Menus.GameOver("you went bust!");
-            }
 
         }
         public void display()
@@ -47,6 +43,9 @@ namespace Library
             foreach (var card in handCards)
             {
                 score += card.PointValue;
+            }
+            foreach (var card in handCards)
+            {
                 if (score > 21)
                 {
                     if (card.Face == "Ace" && card.PointValue == 11)
@@ -56,7 +55,6 @@ namespace Library
                     }
                 }
             }
-
         }
     }
 }

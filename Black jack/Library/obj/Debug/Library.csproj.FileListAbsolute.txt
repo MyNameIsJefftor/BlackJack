@@ -4,3 +4,9 @@ C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Library\obj\Debug\Library.dll
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Library\obj\Debug\Library.pdb
 C:\Users\Kurtis McCammon\Desktop\Programming\Programming_2\Blackjack\Black jack\Library\bin\Debug\ReadersV0.5.cs
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\bin\Debug\ReadersV0.5.cs
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\bin\Debug\Library.dll
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\bin\Debug\Library.pdb
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\obj\Debug\Library.csprojAssemblyReference.cache
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\obj\Debug\Library.dll
+C:\Users\admin\Desktop\Progamming\BlackJack\Black jack\Library\obj\Debug\Library.pdb

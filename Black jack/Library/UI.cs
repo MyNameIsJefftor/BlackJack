@@ -25,7 +25,12 @@ namespace Library
         }
         public void WriteCenter(string Write)
         {
-            Console.SetCursorPosition(centerx - Write.Length, centery);
+            Console.SetCursorPosition(centerx - (Write.Length/2), centery);
+            Console.Write(Write);
+        }
+        public void WriteCenter(string Write, int i)
+        {
+            Console.SetCursorPosition(centerx - (Write.Length / 2), centery+i);
             Console.Write(Write);
         }
         #region DeckViewer
@@ -80,72 +85,10 @@ namespace Library
         {
             Console.ForegroundColor = suit;
             int cardWidth = (int)(consoleW * .1);
-            int cardHeight = consoleH - 5;
-            for (int hi = cardHeight; hi <= consoleH + 1; hi++)
+            int cardHeight = consoleH - 6;
+            for (int hi = cardHeight; hi < consoleH; hi++)
             {
-                Console.BackgroundColor = ConsoleColor.Black;
                 Console.SetCursorPosition(cardWidth + (count * (cardWidth+1)), hi);
-                for (int i = 0; i < cardWidth; i++)
-                {
-                    Console.BackgroundColor = ConsoleColor.White;
-                    if(hi == cardHeight && i == 0)
-                    {
-                        switch (card.SuitSymb)
-                        {
-                            case 2660:
-                                Console.Write("\u2660");
-                                break;
-                            case 2663:
-                                Console.Write("\u2663");
-                                break;
-                            case 2666:
-                                Console.Write("\u2666");
-                                break;
-                            case 2665:
-                                Console.Write("\u2665");
-                                break;
-                        }
-                        i++;
-                    }
-                    if (hi == cardHeight && i == 1)
-                    {
-                        Console.Write(card.Face);
-                        i += card.Face.Length - 1;
-                    }
-                    else
-                        Console.Write(Space);
-                }
-            }
-            Console.ResetColor();
-        }
-        #endregion
-        #region Dealer Cards
-        public void DealerCardView(Hand hand)
-        {
-            int i = 0;
-            foreach (var card in hand.handCards)
-            {
-                if (card.Suit == "heart" || card.Suit == "diamond")
-                {
-                    GenerateDealerCard(HeartDiamond, card, i);
-                }
-                else
-                {
-                    GenerateDealerCard(SpadeClub, card, i);
-                }
-                i++;
-            }
-
-        }
-        private void GenerateDealerCard(ConsoleColor suit, Card card, int count)
-        {
-            Console.ForegroundColor = suit;
-            int cardWidth = (int)(consoleW * .1);
-            int cardHeight = consoleH - 5;
-            for (int hi = cardHeight; hi <= consoleH + 1; hi++)
-            {
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.SetCursorPosition(cardWidth + (count * (cardWidth + 1)), hi);
                 for (int i = 0; i < cardWidth; i++)
                 {
                     Console.BackgroundColor = ConsoleColor.White;
@@ -179,6 +122,79 @@ namespace Library
             }
             Console.ResetColor();
         }
+        #endregion
+        #region Dealer Cards
+        public void DealerCardView(Hand hand, bool hide)
+        {
+            int i = 0;
+            foreach (var card in hand.handCards)
+            {
+                if (card.Suit == "heart" || card.Suit == "diamond")
+                {
+                    GenerateDealerCard(HeartDiamond, card, i, hide);
+                }
+                else
+                {
+                    GenerateDealerCard(SpadeClub, card, i, hide);
+                }
+                i++;
+            }
+
+        }
+        private void GenerateDealerCard(ConsoleColor suit, Card card, int count, bool hide)
+        {
+            Console.ForegroundColor = suit;
+            int cardWidth = (int)(consoleW * .1);
+            int cardHeight = consoleH - 5;
+            for (int hi = 0; hi < 5 + 1; hi++)
+            {
+                Console.BackgroundColor = ConsoleColor.Black;
+                Console.SetCursorPosition(cardWidth + (count * (cardWidth + 1)), hi);
+                for (int i = 0; i < cardWidth; i++)
+                {
+                    Console.BackgroundColor = ConsoleColor.White;
+                    if (count == 1 && hide)
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkBlue;
+                        Console.ForegroundColor = ConsoleColor.DarkBlue;
+                    }
+                    if (hi == 5 && i == 0)
+                    {
+                        switch (card.SuitSymb)
+                        {
+                            case 2660:
+                                Console.Write("\u2660");
+                                break;
+                            case 2663:
+                                Console.Write("\u2663");
+                                break;
+                            case 2666:
+                                Console.Write("\u2666");
+                                break;
+                            case 2665:
+                                Console.Write("\u2665");
+                                break;
+                        }
+                        i++;
+                    }
+                    if (hi == 5 && i == 1)
+                    {
+                        Console.Write(card.Face);
+                        i += card.Face.Length - 1;
+                    }
+                    else
+                        Console.Write(Space);
+                }
+            }
+            Console.ResetColor();
+        }
+        #endregion
+        #region Score Display
+        public void ScoreDisplay(Hand hand)
+        {
+            Console.SetCursorPosition((int)(consoleW * .1), (consoleH - 8));
+            Console.Write(hand.score);
+        }
+        #endregion
     }
-    #endregion
 }

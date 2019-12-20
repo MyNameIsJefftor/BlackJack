@@ -22,6 +22,7 @@ namespace Black_jack
             //UI user = new UI();
             //user.PlayerCardView(hand);
             //Console.ReadKey();
+            Console.ReadKey();
             Game Start = new Game();
             bool exit = false;
             Console.OutputEncoding = System.Text.Encoding.UTF8;
