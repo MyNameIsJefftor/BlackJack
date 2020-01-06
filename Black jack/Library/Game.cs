@@ -26,16 +26,14 @@ namespace Library
         public void GameStart()
         {
             deck.ShuffleDeck();
-            Dealer.draw(deck);
             Player.draw(deck);
             Dealer.draw(deck);
             Player.draw(deck);
+            Dealer.draw(deck);
             Console.Clear();
             userFace.DealerCardView(Dealer, true);
-            Console.ReadKey();
             userFace.PlayerCardView(Player);
             userFace.ScoreDisplay(Player);
-            Console.ReadKey();
             bool Hit = false;
             do
             {
@@ -46,21 +44,19 @@ namespace Library
                     Player.draw(deck);
                 }
                 userFace.PlayerCardView(Player);
+                userFace.DealerCardView(Dealer, true);
                 userFace.ScoreDisplay(Player);
-            } while (Hit && Player.score <= 21);
-            Console.ReadKey();
+            } while (Hit && Player.score < 21);
             if (Player.score > 21)
             {
                 userFace.DealerCardView(Dealer, false);
                 userFace.ScoreDealDisplay(Dealer);
-                Console.ReadKey();
                 Menus.Lose(userFace, Player, Dealer);
                 return;
             }
             AI Go = new AI(Dealer, deck);
             userFace.DealerCardView(Dealer, false);
             userFace.ScoreDealDisplay(Dealer);
-            Console.ReadKey();
             if (Dealer.score > 21)
             {
                 Menus.Win(userFace, Player, Dealer);

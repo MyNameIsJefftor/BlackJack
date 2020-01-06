@@ -9,19 +9,17 @@ namespace Library
 {
     static public class Menus
     {
-        private static string[] LaunchOptions = new string[] { "Play", "shuffle and display deck", "exit" };
+        private static string[] LaunchOptions = new string[] { "Play", "Shuffle and Display Deck", "Exit" };
         private static string[] HitStayOptions = new string[] { "Hit", "Stay" };
         private static string[] Replay = new string[] { "Yes", "No" };
-        private static bool restart = false;
         private static bool again = true;
         public static void launchmenu(Game game, out bool exit)
         {
+            Console.WriteLine("xXx---- Kurtis Black Jack ----xXx");
             Readers.ReadChoice("Choice? : ", LaunchOptions, out int selection);
             switch (selection)
             {
                 case (1):
-                    if (!restart)
-                        restart = true;
                     game.Restart();
                     game.GameStart();
                     break;
@@ -43,8 +41,6 @@ namespace Library
         {
             Readers.ReadChoice("", HitStayOptions, out int selection);
             Console.CursorLeft = 0;
-            Console.CursorTop--;
-            Console.Write(" ");
             if (selection == 1)
                 Hit = true;
             else

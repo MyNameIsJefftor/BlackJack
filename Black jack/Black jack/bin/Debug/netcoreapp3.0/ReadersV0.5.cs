@@ -88,6 +88,7 @@ namespace Reader
                     Console.WriteLine($"{i + 1}. {options[i]}");
                 }
                 selection = ReadIntegerWMM(prompt, 1, options.Length);
+            Console.Clear();
         }
     }
 }
